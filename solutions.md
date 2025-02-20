@@ -21,14 +21,37 @@ The **Online Shop** project is a demo e-commerce application designed for Hackat
 
 **Project Title & Overview:**- Online Shop – Hackathon Phase 1 Submission
     
- ## Tasks
+# Online Shop Hackathon - Phase 1
 
-For this hackathon phase, your work will center around the following tasks:
+## Tasks Overview
+This repository contains the work for **Phase 1** of the Online Shop Hackathon. The tasks focus on **Git & GitHub** best practices and workflow optimization.
 
-### Git & GitHub
+---
 
-- **Repository Management:** Fork and clone the repository, then create a new branch for your work. Ensure your commit history is clean and well-documented.
-- **Collaboration Practices:** Follow best practices for version control by making descriptive commits, creating pull requests, and engaging in code reviews.
-- **Workflow Optimization:** Identify any areas where the Git workflow can be improved and document your suggestions for future enhancements.
+## Git & GitHub Tasks
+
+### 1. Repository Management
+- Forked the repository and cloned it locally.
+- Created a new branch: `hackathon-phase1$`.
+- Ensured clean and well-documented commit history.
+
+### 2. Collaboration Practices
+- Followed best practices for version control:
+  - Made descriptive commits (e.g., `feat:`, `fix:`, `docs:`).
+  - Created pull requests (PRs) for review.
+  - Engaged in code reviews.
+
+### 3. Workflow Optimization
+- Identified areas for improvement in the Git workflow:
+  - Added a `.gitignore` file to exclude unnecessary files.
+  - Created a pull request template for standardized PR descriptions.
+  - Suggested using Git hooks for pre-commit checks.
+
+---
+
+## How to Use This Repository
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/your-username/online_shop_hackathon.git](https://github.com/Namrataaswale/online_shop_hackathon.git 
 
 
