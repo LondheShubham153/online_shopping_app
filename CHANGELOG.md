@@ -248,7 +248,7 @@ git push origin feature/devops-enhancements
 
 ---
 
-## ��� **Final Steps for PR Merge**
+## **Final Steps for PR Merge**
 1. **Ensure your README.md is updated** with relevant changes.
 2. **Update the `CHANGELOG.md`** following the existing format.
 3. **Wait for a maintainer to review and approve the PR** before it gets merged.
