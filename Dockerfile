@@ -2,6 +2,11 @@
 # Use the official Node.js image 
 FROM node:20-alpine AS build
 
+# Set metadata
+LABEL maintainer="yogabhinanda@gmail.com"
+LABEL version="1.0"
+LABEL description="Online Shopping Application"
+
 # Set the working directory inside the container to /app
 WORKDIR /app
 
