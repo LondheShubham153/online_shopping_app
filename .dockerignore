@@ -1,0 +1,9 @@
+# Exclude node modules and built files
+node_modules
+dist
+
+# Exclude Git files and logs
+.git
+.gitignore
+*.log
+.dockerignore

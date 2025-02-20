@@ -1,0 +1,406 @@
+﻿:root {
+    --primary-color: #8a2be2;
+    --primary-hover: #7525c5;
+    --primary-glow: rgba(138, 43, 226, 0.15);
+    --dark-bg: #1a1a1a;
+    --dark-surface: #2d2d2d;
+    --dark-surface-hover: #383838;
+    --text-primary: #ffffff;
+    --text-secondary: #e0e0e0;
+    --footer-bg: #141414;
+    --footer-hover: #000000;
+}
+
+body {
+    background-color: var(--dark-bg) !important;
+    color: var(--text-primary) !important;
+}
+
+.bg-light {
+    background-color: var(--dark-surface) !important;
+}
+
+.card {
+    background-color: var(--dark-surface) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: var(--text-primary) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease !important;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--primary-glow);
+    background-color: var(--dark-surface-hover) !important;
+}
+
+.navbar {
+    background-color: var(--dark-bg) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-primary {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+    transition: all 0.2s ease !important;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover) !important;
+    border-color: var(--primary-hover) !important;
+    box-shadow: 0 0 12px var(--primary-glow);
+    transform: translateY(-1px);
+}
+
+.btn:active {
+    transform: translateY(1px) !important;
+}
+
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+/* Tooltips style override. */
+.styles-module_tooltip__mnnfp {
+    z-index: 1500000 !important;
+    border-radius: 15px !important;
+    padding: 20px !important;
+    color: white !important;
+    background-color: var(--bs-primary) !important;
+    font-size: 1rem !important;
+    user-select: none;
+    word-wrap: break-word !important;
+    width: 95% !important;
+    max-width: 500px !important;
+}
+
+.grecaptcha-badge {
+    visibility: hidden;
+}
+
+#root {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    /* Override toastify border radius. */
+    --toastify-toast-bd-radius: var(--bs-border-radius);
+}
+
+.search-bar {
+    transition: box-shadow 0.1s ease-in-out, width 0.2s ease-in-out;
+    border-radius: 50px;
+    width: 164px;
+    text-overflow: clip;
+    margin: 0 0.5rem 0 0.5rem;
+    background-color: var(--dark-surface) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.search-bar input {
+    background-color: var(--dark-surface) !important;
+    color: var(--text-primary) !important;
+}
+
+.search-bar:hover {
+    box-shadow: 0 2px 8px var(--primary-glow);
+    background-color: var(--dark-surface-hover) !important;
+}
+
+.search-bar:has(input:focus) {
+    width: 100%;
+}
+
+.search-bar:has(input:not(:placeholder-shown)) {
+    width: 100%;
+}
+
+/* Center search bar clear icon. */
+.clear-icon {
+    display: flex;
+}
+
+.logo {
+    margin-right: 25px;
+}
+
+@media (max-width: 420px) {
+    .new-product-btn-text {
+        font-size: 0.7rem;
+    }
+
+    .logo {
+        width: 90px;
+        margin-right: 5px;
+    }
+
+    .search-bar {
+        width: 100%;
+        margin: 0;
+        margin-bottom: 1rem;
+        z-index: 999999;
+    }
+}
+
+/* Footer Styles */
+footer {
+    background-color: var(--footer-bg) !important;
+    color: var(--text-secondary) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 2rem 0;
+    margin-top: auto;
+    position: relative;
+}
+
+.footer-logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer-logo,
+.game-footer-logo {
+    height: 40px;
+    width: 120px;
+    transition: all 0.3s ease;
+}
+
+.footer-logo:hover,
+.game-footer-logo:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 8px var(--primary-glow));
+}
+
+/* Add a separator between logos */
+.footer-logo-separator {
+    height: 30px;
+    width: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+footer a,
+footer .nav-link,
+footer .footer-link,
+footer .copyright-text,
+footer span {
+    color: var(--text-secondary) !important;
+    text-decoration: none;
+    transition: all 0.2s ease !important;
+}
+
+footer a:hover,
+footer .nav-link:hover,
+footer .footer-link:hover,
+footer .copyright-text:hover,
+footer span:hover {
+    color: #000000 !important;
+    text-decoration: none;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+footer .social-links {
+    margin-top: 1rem;
+}
+
+footer .social-links a {
+    margin: 0 10px;
+    opacity: 0.8;
+    transition: all 0.2s ease;
+}
+
+footer .social-links a:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+    color: #000000 !important;
+}
+
+/* Navigation hover effects */
+.nav-link {
+    position: relative;
+    transition: color 0.2s ease !important;
+}
+
+.nav-link:hover {
+    color: var(--primary-color) !important;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.2s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Interactive elements hover */
+.interactive-element {
+    transition: all 0.2s ease;
+}
+
+.interactive-element:hover {
+    background-color: var(--dark-surface-hover) !important;
+    box-shadow: 0 2px 8px var(--primary-glow);
+}
+
+/* Cart Item Styles */
+.cart-item {
+    border-color: var(--primary-color) !important;
+}
+
+.cart-item:hover {
+    border-color: var(--primary-hover) !important;
+}
+
+/* Override Bootstrap's default focus and active states */
+.btn:focus, 
+.btn:active,
+.btn:focus-visible {
+    box-shadow: 0 0 0 0.25rem var(--primary-glow) !important;
+}
+
+/* Cart quantity controls */
+.quantity-btn:hover {
+    color: var(--primary-color) !important;
+    background-color: var(--primary-glow) !important;
+}
+
+/* Cart remove button */
+.remove-btn {
+    color: var(--text-secondary) !important;
+    transition: all 0.2s ease !important;
+}
+
+.remove-btn:hover {
+    color: var(--primary-color) !important;
+    background-color: var(--primary-glow) !important;
+}
+
+/* Cart item outline when added */
+.cart-item-added {
+    outline: 2px solid var(--primary-color) !important;
+    outline-offset: 2px;
+}
+
+/* Cart counter badge */
+.cart-count {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+}
+
+/* Shopping cart icon hover */
+.cart-icon:hover {
+    color: var(--primary-color) !important;
+}
+
+/* Toast notification for cart */
+.Toastify__toast {
+    background-color: var(--dark-surface) !important;
+    color: var(--text-primary) !important;
+}
+
+.Toastify__progress-bar {
+    background-color: var(--primary-color) !important;
+}
+
+/* Override any remaining Bootstrap orange/default colors */
+.btn-outline-primary {
+    color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+}
+
+/* Override Bootstrap focus rings */
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 0.25rem var(--primary-glow) !important;
+}
+
+/* Override any remaining orange colors in alerts and notifications */
+.alert-primary {
+    background-color: var(--primary-glow) !important;
+    border-color: var(--primary-color) !important;
+    color: var(--primary-color) !important;
+}
+
+/* Footer specific overrides */
+footer .nav-link,
+footer .footer-link,
+footer .copyright-text {
+    color: var(--text-secondary) !important;
+    transition: all 0.2s ease !important;
+}
+
+footer .nav-link:hover,
+footer .footer-link:hover,
+footer .copyright-text:hover {
+    color: var(--footer-hover) !important;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
+/* Shopping cart specific overrides */
+.cart-quantity {
+    color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+}
+
+.cart-item-highlight {
+    background-color: var(--primary-glow) !important;
+}
+
+/* Toast overrides */
+.Toastify__toast-theme--light {
+    background-color: var(--dark-surface) !important;
+    color: var(--text-primary) !important;
+}
+
+.Toastify__progress-bar--success {
+    background-color: var(--primary-color) !important;
+}
+
+.Toastify__progress-bar--error {
+    background-color: #ff4444 !important;
+}
+
+/* Price and discount tags */
+.price-tag,
+.discount-badge {
+    color: var(--primary-color) !important;
+}
+
+/* Active navigation items */
+.nav-link.active {
+    color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+}
+
+/* Any remaining orange outlines or borders */
+*:focus {
+    outline-color: var(--primary-color) !important;
+}
+
+.border-primary {
+    border-color: var(--primary-color) !important;
+}
+
+/* Override any Bootstrap primary colors */
+.bg-primary {
+    background-color: var(--primary-color) !important;
+}
+
+.text-primary {
+    color: var(--primary-color) !important;
+}
