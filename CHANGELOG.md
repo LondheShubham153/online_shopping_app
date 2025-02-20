@@ -1,10 +1,10 @@
-# ��� Online Shop Hackathon
+# 🎉 Online Shop Hackathon
 
 This repository contains the **Online Shop Frontend**, containerized and deployed using **Docker**, **Node.js**, and **Nginx**.
 
 ---
 
-## ��� Project Overview
+## 🎉 Project Overview
 
 The objective of this project was to:
 
@@ -15,7 +15,7 @@ The objective of this project was to:
 
 ---
 
-## ��� Steps to Set Up and Deploy
+## 🎉 Steps to Set Up and Deploy
 
 ### **1️⃣ Clone the Repository**
 
@@ -157,7 +157,7 @@ sudo systemctl status online-shop
 
 ---
 
-## ��� What I Learned
+## 🎉 What I Learned
 
 During this project, I gained experience with:
 
@@ -170,7 +170,7 @@ During this project, I gained experience with:
 
 ---
 
-## ��� Running the Project
+## 🎉 Running the Project
 
 If the container is already running, restart it:
 
@@ -192,7 +192,7 @@ docker rm -f $(docker ps -aq)
 
 ---
 
-## ��� **Pushing Changes to GitHub and Creating a Pull Request**
+## 🎉 **Pushing Changes to GitHub and Creating a Pull Request**
 
 ### **1️⃣ Configure Git Remote**
 Check if your repository is correctly set up:
@@ -238,7 +238,7 @@ git push origin feature/devops-enhancements
 
 ### **5️⃣ Create a Pull Request**
 1. **Go to the original GitHub repository**:  
-   ��� [https://github.com/Kisalaykisu/online_shop_hackathon](https://github.com/Kisalaykisu/online_shop_hackathon)
+   🎉 [https://github.com/Kisalaykisu/online_shop_hackathon](https://github.com/Kisalaykisu/online_shop_hackathon)
 
 2. **Click on "Compare & pull request".**
 
@@ -261,7 +261,7 @@ git push origin feature/devops-enhancements
 
 ---
 
-## ��� **Pushing Changes to GitHub and Creating a Pull Request**
+## 🎉 **Pushing Changes to GitHub and Creating a Pull Request**
 
 ### **1️⃣ Configure Git Remote**
 Check if your repository is correctly set up:
@@ -307,7 +307,7 @@ git push origin feature/devops-enhancements
 
 ### **5️⃣ Create a Pull Request**
 1. **Go to the original GitHub repository**:  
-   ��� [https://github.com/Kisalaykisu/online_shop_hackathon](https://github.com/Kisalaykisu/online_shop_hackathon)
+   🎉 [https://github.com/Kisalaykisu/online_shop_hackathon](https://github.com/Kisalaykisu/online_shop_hackathon)
 
 2. **Click on "Compare & pull request".**
 
@@ -317,12 +317,12 @@ git push origin feature/devops-enhancements
 
 ---
 
-## ��� **Final Steps for PR Merge**
+## 🎉 **Final Steps for PR Merge**
 1. **Ensure your README.md is updated** with relevant changes.
 2. **Update the `CHANGELOG.md`** following the existing format.
 3. **Wait for a maintainer to review and approve the PR** before it gets merged.
 
 ---
 
-### ��� **Now, the online shop frontend is fully Dockerized and deployed successfully on EC2!!!!** ������
+### 🎉 **Now, the online shop frontend is fully Dockerized and deployed successfully on EC2!!!!** 🎉
 
