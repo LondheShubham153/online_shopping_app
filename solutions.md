@@ -37,16 +37,12 @@ This repository contains the work for **Phase 1** of the Online Shop Hackathon. 
 
 ### 2. Collaboration Practices
 - Followed best practices for version control:
-  - Made descriptive commits (e.g., `feat:`, `fix:`, `docs:`).
   - Created pull requests (PRs) for review.
   - Engaged in code reviews.
 
 ### 3. Workflow Optimization
 - Identified areas for improvement in the Git workflow:
   - Added a `.gitignore` file to exclude unnecessary files.
-  - Created a pull request template for standardized PR descriptions.
-  - Suggested using Git hooks for pre-commit checks.
-
 ---
 
 ## How to Use This Repository
