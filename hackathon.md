@@ -21,12 +21,8 @@ This is my submission for the **Hackathon Phase 1**, where I worked on **Git & G
 ✅ Followed **Docker security best practices**.  
 ✅ Documented future improvements for Docker integration.  
 
-## 📽️ Demo Video  
-🔗 [Video Link Here](#) *(Make sure it is public and under 5 minutes!)*  
-
 ## 📂 Repository Details  
 - **Final Submission Branch:** `final-phase1`  
-- **Commit SHA:** `abc123def456` *(Replace with actual commit hash)*  
 
 ## 📜 Final Notes  
 This submission adheres to the **hackathon guidelines**, and I have tested all enhancements to ensure functionality.  
