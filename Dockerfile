@@ -18,6 +18,9 @@ COPY . .
 # Start with a fresh Node.js image for the production environment
 FROM node:20-alpine AS production
 
+# Create a non-root user for security
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+
 # Set the working directory inside the production container to /app
 WORKDIR /app
 
@@ -26,6 +29,10 @@ COPY --from=build /app/node_modules /app/node_modules
 
 # Copy the application source code from the build stage into the production container.
 COPY --from=build /app /app
+
+RUN chown -R appuser:appgroup /app
+
+USER appuser
 
 # Expose port 5173 to make the application accessible from outside the container.
 EXPOSE 5173
