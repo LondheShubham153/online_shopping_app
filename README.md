@@ -251,7 +251,9 @@ docker-compose up -d
 
 ### 📄 Submission Details
 Final Submission Branch: final-phase1
+
 Demo Video: https://vimeo.com/1058826176/d0fadfdc26?share=copy
+
 Docker Hub Image: dvharsh/online-shop:latest
 
 
