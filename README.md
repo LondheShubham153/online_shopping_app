@@ -49,6 +49,189 @@ The **Online Shop** project is a demo e-commerce application designed for Hackat
 Your task is to familiarize yourself with the code, make enhancements if necessary, and ensure your final submission reflects your understanding of these topics.
 
 ---
+## 🛠️ Implementation Details
+
+### 🔧 Git & GitHub Operations
+
+- **Repository Management:**
+  - **Forked** the repository and **cloned** it locally.
+  - Created a feature branch `feature/docker-integration` to isolate enhancements.
+  
+  ```bash
+  -git clone https://github.com/dvharsh/online_shop_hackathon.git
+  -cd online_shop_hackathon
+  -git checkout -b feature/docker-integration
+
+### Environment Setup & Dependency Installation:
+
+### Installed project dependencies:
+
+-npm install
+
+### Version Control & Collaboration:
+
+-Maintained a clean commit history using descriptive messages:
+
+-git add .
+-git commit -m "feat: initial setup and dependency installation"
+-git push origin feature/docker-integration
+-Created Pull Requests for code reviews and future merging.
+
+### Vite Configuration:
+
+- Updated vite.config.js to set the development server’s host and port:
+
+-import { defineConfig } from 'vite';
+-import react from '@vitejs/plugin-react';
+
+-export default defineConfig({
+  plugins: [react()],
+  base: './',
+  server: {
+    host: '0.0.0.0',  // Accessible externally 🌐
+    port: 5173,
+    strictPort: true,
+  },
+  css: {
+    devSourcemap: false,
+  },
+});
+
+
+### 🐧 Linux Environment & Optimizations
+
+--File Permissions:
+-Updated file permissions for enhanced security:
+
+-chmod -R 755 public src node_modules
+-chmod 644 package.json vite.config.js index.html README.md CONTRIBUTING.md LICENSE ROADMAP.md
+
+--Command-Line Proficiency:
+- Verified file operations (e.g., ls, mv, cp) and ensured proper functioning of system scripts.
+
+
+-- Process Management with PM2:
+- Installed and configured PM2 to run the application in the background:
+- sudo npm install -g pm2
+- pm2 start "npm run dev" --name online-shop
+- pm2 save
+- pm2 startup
+
+This setup ensures the application remains running even after closing the terminal.
+
+## ⚛️ Vite/React Configuration
+-The application is built using Vite and React.
+-The build process outputs the production-ready files into a dist folder, which are later served by Nginx in the Docker container.
+
+
+### 🐳 Docker Containerization
+-.dockerignore File:
+
+-Created a .dockerignore file to exclude unnecessary files from the build context:
+
+-dockerignore
+node_modules
+.git
+dist
+*.log
+Dockerfile
+.dockerignore
+
+-- Implemented a multi-stage Dockerfile to build the app and serve it using Nginx:
+
+# Stage 1: Build the application using Node 18
+FROM node:18-alpine AS builder
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+RUN npm run build
+
+# Stage 2: Serve the application using Nginx
+FROM nginx:alpine
+RUN rm -rf /usr/share/nginx/html/*
+COPY --from=builder /app/dist /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+
+
+### Docker Compose Configuration:
+
+-- Developed a docker-compose.yml file to manage container settings including port mapping, healthchecks, and volume for backup:
+
+version: "3.8"
+services:
+  online-shop:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: dvharsh/online-shop:latest
+    ports:
+      - "3000:80"  # Map host port 3000 to container port 80
+    volumes:
+      - shop_backup:/usr/share/nginx/html  # Persistent backup of built files
+    restart: always
+    environment:
+      - NODE_ENV=production
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+volumes:
+  shop_backup:
+    driver: local
+
+
+##Pushing to Docker Hub:
+
+-- Built and pushed the final Docker image to Docker Hub:
+
+docker login
+docker push dvharsh/online-shop:latest
+
+
+### 🚀 How to Run the Application Development (On EC2)
+
+-Clone the Repository & Switch Branch:
+
+git clone https://github.com/dvharsh/online_shop_hackathon.git
+cd online_shop_hackathon
+git checkout -b feature/final-phase1
+
+-- Install Dependencies:
+
+npm install
+
+-- Start the Development Server:
+
+npm run dev
+
+-- Access the Application:
+
+-Use the configured port in vite.config.js (e.g., accessible externally).
+
+-- Production (Using Docker)
+-Build the Docker Image with Compose:
+
+docker-compose build --no-cache
+
+-- Run the Container:
+
+docker-compose up -d
+
+-- Access the Application: Open your browser at:
+
+-http://<EC2_PUBLIC_IP>:3000
+-Replace <EC2_PUBLIC_IP> with your EC2 instance's public IP address.
+
+### 📄 Submission Details
+Final Submission Branch: final-phase1
+Demo Video: https://vimeo.com/1058826176/d0fadfdc26?share=copy
+Docker Hub Image: dvharsh/online-shop:latest
+
 
 ## Guidelines & Resources
 
