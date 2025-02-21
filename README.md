@@ -160,28 +160,50 @@ CMD ["nginx", "-g", "daemon off;"]
 -- Developed a docker-compose.yml file to manage container settings including port mapping, healthchecks, and volume for backup:
 
 version: "3.8"
+
 services:
+
   online-shop:
+  
     build:
+    
       context: .
+      
       dockerfile: Dockerfile
+
     image: dvharsh/online-shop:latest
+    
     ports:
+    
       - "3000:80"  # Map host port 3000 to container port 80
+      
     volumes:
+    
       - shop_backup:/usr/share/nginx/html  # Persistent backup of built files
+      
     restart: always
+    
     environment:
+    
       - NODE_ENV=production
+      
     healthcheck:
+    
       test: ["CMD", "curl", "-f", "http://localhost/"]
+      
       interval: 30s
+      
       timeout: 10s
+      
       retries: 3
+      
       start_period: 30s
+      
 
 volumes:
+
   shop_backup:
+  
     driver: local
 
 
