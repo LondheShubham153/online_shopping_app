@@ -1,0 +1,25 @@
+version: "3.8"
+services:
+  online-shop:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: dvharsh/online-shop:latest
+    ports:
+      - "3000:80"  # Map host port 3000 to container port 80
+    volumes:
+      - shop_backup:/usr/share/nginx/html  # Volume for persistent storage of built files (backup)
+    restart: always
+    environment:
+      - NODE_ENV=production
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/"]  # Health check: curl must succeed
+      interval: 30s       # Run healthcheck every 30 seconds
+      timeout: 10s        # Timeout after 10 seconds
+      retries: 3          # If it fails 3 times in a row, the container is considered unhealthy
+      start_period: 30s   # Wait 30 seconds before starting healthchecks
+
+volumes:
+  shop_backup:
+    driver: local
+
