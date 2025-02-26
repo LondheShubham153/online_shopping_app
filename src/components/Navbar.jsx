@@ -14,7 +14,7 @@ export function Navbar() {
         <nav className="navbar sticky-top">
             <Container className="d-flex justify-content-between align-items-center">
                 <NavLink to="/" className="navbar-brand">
-                    <img src="/imgs/logo.svg" alt="Logo" width="30" height="30" />ZapCart
+                    <img src="/imgs/logo.svg" alt="Logo" width="30" height="30" />ZapCarts
                     <span className="text-primary text-color">Dukaan</span>
                 </NavLink>
 
