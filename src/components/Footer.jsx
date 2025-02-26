@@ -27,7 +27,7 @@ export function Footer() {
                             </div>
                             <div className="contact-item">
                                 <FontAwesomeIcon icon={faPhone} className="contact-icon me-2" />
-                                <span><strong>Helpline:</strong> +91 9999999999</span>
+                                <span><strong>Helpline:</strong> +91 99999999999</span>
                             </div>
                         </div>
                     </Col>
