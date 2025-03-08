@@ -3,9 +3,7 @@ version: "3.8"
 services:
 
   online_shop:
-    build:
-      context: .
-    container_name: online_shop
+    image: sushants1/shopping-app:latest
     ports:
       - "5173:5173"
     restart: always
