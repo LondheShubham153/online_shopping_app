@@ -4,7 +4,7 @@ metadata:
   name: online-shop
   namespace: online-shop-prod
 spec:
-  replicas: 3
+  replicas: 4
   selector:
     matchLabels:
       app: online-shop
@@ -15,8 +15,8 @@ spec:
     spec:
       containers:
       - name: online-shop
-        image: online_shop:latest
-        imagePullPolicy: Never
+        image: amrita230624/node-to-do:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
         envFrom:

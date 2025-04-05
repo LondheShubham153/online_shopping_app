@@ -6,6 +6,18 @@
 [![GitHub Profile](https://img.shields.io/badge/GitHub-iemafzalhassan-blue?logo=github&style=flat)](https://github.com/iemafzalhassan)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
+HELM
+https://helm.sh/docs/intro/install/
+https://artifacthub.io/packages/helm/jenkinsci/jenkins
+
+*** helm vertion ***
+*** helm repo list ***
+*** helm repo update ***
+*** helm repo add jenkins https://charts.jenkins.io ***
+*** helm repo update ****
+*** helm install jenkins-demo jenkins/jenkins --create-namespace ***
+
+*** printf $(kubectl get secret jenkins-demo -o jsonpath="{.data.jenkins-admin-password"} | base64 --decode);echo  ***
 <p align="center">
 
 Welcome to the **Online Shop** project – our hackathon entry for Phase 1! This repository contains a fully functional e-commerce application built to demonstrate foundational DevOps skills in three key areas:
