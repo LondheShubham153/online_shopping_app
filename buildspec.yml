@@ -32,14 +32,17 @@ phases:
 
   post_build:
     commands:
-      - echo Build completed on `date`
-      - echo Pushing the Docker image...
-      - docker push $IMAGE_NAME:latest
-      - echo Uploading zip file to S3 root location...
-      - aws s3 cp online-shop-app.zip s3://tws-online-shop-demo/online-shop-app/ # Upload zip file to the root of the bucket
-      - echo Writing image definitions file...
-      - printf '{"ImageURI":"%s", "Port":8000}' $IMAGE_NAME:latest > imageDefinitions.json
-      - cat imageDefinitions.json
+    - echo "Build completed on `date`"
+    - echo "Pushing the Docker image..."
+    - docker push $IMAGE_NAME:latest
+    - echo "Uploading zip file to S3..."
+    - aws s3 cp online-shop-app.zip s3://mybucket-imran-devops-project/online-shop-app/ \
+        --acl bucket-owner-full-control \
+        --debug
+    - echo "Writing image definitions file..."
+    - printf '{"ImageURI":"%s", "Port":8000}' $IMAGE_NAME:latest > imageDefinitions.json
+    - echo "Image definitions:"
+    - cat imageDefinitions.json
 
 artifacts:
   files:
