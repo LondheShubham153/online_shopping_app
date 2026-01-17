@@ -7,7 +7,7 @@ services:
       context: .
     container_name: online_shop
     ports:
-      - "5173:5173"
+      - "5173:80"
     restart: always
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:5173/"]
