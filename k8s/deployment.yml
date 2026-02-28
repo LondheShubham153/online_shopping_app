@@ -1,31 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
+
 metadata:
-  name: online-shop
-  namespace: online-shop-prod
+  name: online-shop-deployment
+  namespace: online-shop
+  labels:
+    app: online-shop
+
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: online-shop
+
   template:
     metadata:
+      name: online-shop-pod
+      namespace: online-shop
       labels:
         app: online-shop
+
     spec:
       containers:
-      - name: online-shop
-        image: online_shop:latest
-        imagePullPolicy: Never
+      - name: online-shop-container
+        image: devansh0111/online_shop_app:latest
         ports:
         - containerPort: 80
-        envFrom:
-        - configMapRef:
-            name: online-shop-config
-        resources:
-          requests:
-            cpu: "100m"
-            memory: "128Mi"
-          limits:
-            cpu: "300m"
-            memory: "256Mi"
+

@@ -1,6 +1,4 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: online-shop-prod
-  labels:
-    environment: production
+  name: online-shop
