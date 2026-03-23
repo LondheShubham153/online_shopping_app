@@ -1,34 +1,31 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
+
 metadata:
-  name: online-shop
-  namespace: online-shop-prod
+  namespace: online-shop
+  name: online-shop-ingress
   annotations:
-    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
     nginx.ingress.kubernetes.io/use-regex: "true"
-    nginx.ingress.kubernetes.io/rewrite-target: /
-    nginx.ingress.kubernetes.io/proxy-connect-timeout: "30"
-    nginx.ingress.kubernetes.io/proxy-read-timeout: "1800"
-    nginx.ingress.kubernetes.io/proxy-send-timeout: "1800"
+
 spec:
-  ingressClassName: nginx
   rules:
-  - host: online-shop.iemafzalhassan.tech
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: online-shop
-            port:
-              number: 80
   - http:
       paths:
-      - path: /
+      - path: /shop(/|$)(.*)
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: online-shop-service
+            port:
+              number: 80
+
+      - path: /apache
         pathType: Prefix
         backend:
           service:
-            name: online-shop
+            name: apache-service
             port:
               number: 80
+
+
