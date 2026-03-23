@@ -1,0 +1,30 @@
+
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: apache-deployment
+  namespace: online-shop
+  labels:
+    app: apache
+
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: apache
+
+  template:
+    metadata:
+      name: apache-pod
+      namespace: online-shop
+      labels:
+        app: apache
+
+    spec:
+      containers:
+      - name: apache-container
+        image: httpd:latest
+        ports:
+        - containerPort: 80
+
