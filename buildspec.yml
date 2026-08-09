@@ -4,51 +4,48 @@ env:
   parameter-store:
     DOCKER_REGISTRY_USERNAME: /myapp/docker-credentials/username
     DOCKER_REGISTRY_PASSWORD: /myapp/docker-credentials/password
-    DOCKER_REGISTRY_URL: /myapp/docker-registry/url
 
 phases:
   install:
     runtime-versions:
-      nodejs: 12.2.0
+      nodejs: 12
     commands:
-      - echo Installing Node.js and npm...
-      - n 12.2.0
+      - echo "Installing Node.js and npm..."
+      - node --version
+      - npm --version
       - npm config set registry https://registry.npmjs.org/
 
-  pre_build:
-    commands:
-      - echo Logging in to Docker Registry...
-      - echo "$DOCKER_REGISTRY_PASSWORD" | docker login -u "$DOCKER_REGISTRY_USERNAME" --password-stdin "$DOCKER_REGISTRY_URL"
-      - IMAGE_REPO_NAME="tws-online-shop-app-demo"
-      - IMAGE_NAME="$DOCKER_REGISTRY_USERNAME/$IMAGE_REPO_NAME"
+pre_build:
+  commands:
+    - echo "Checking Docker credentials..."
+    - 'if [ -z "$DOCKER_REGISTRY_USERNAME" ]; then echo "USERNAME EMPTY"; else echo "USERNAME EXISTS"; fi'
+    - 'if [ -z "$DOCKER_REGISTRY_PASSWORD" ]; then echo "PASSWORD EMPTY"; else echo "PASSWORD EXISTS"; fi'
+    - echo "Docker version:"
+    - docker --version
+    - echo "Trying Docker login..."
+    - 'printf "%s\n" "$DOCKER_REGISTRY_PASSWORD" | docker login -u "$DOCKER_REGISTRY_USERNAME" --password-stdin'
+    - echo "Docker login completed successfully"
 
   build:
     commands:
-      - echo Build started on `date`
-      - echo Packaging application into a zip file...
-      - zip -r online-shop-app.zip * .[^.]* # Include all files and directories, including hidden files
-      - echo Building the Docker image...
-      - docker build -t $IMAGE_NAME:latest .
+      - echo "Build started on `date`"
+      - echo "Building Docker image..."
+      - 'IMAGE_REPO_NAME="tws-online-shop-app-demo"'
+      - 'IMAGE_NAME="$DOCKER_REGISTRY_USERNAME/$IMAGE_REPO_NAME"'
+      - 'docker build -t "$IMAGE_NAME:latest" .'
 
   post_build:
     commands:
       - echo Build completed on `date`
-      - echo Pushing the Docker image...
+      - echo Pushing the Docker image to Docker Hub...
       - docker push $IMAGE_NAME:latest
-      - echo Uploading zip file to S3 root location...
-      - aws s3 cp online-shop-app.zip s3://tws-online-shop-demo/online-shop-app/ # Upload zip file to the root of the bucket
+      - echo Uploading zip file to S3...
+      - aws s3 cp online-shop-app.zip s3://tws-online-shop-demo-570017719653-us-east-2-an/online-shop-app/
       - echo Writing image definitions file...
-      - printf '{"ImageURI":"%s", "Port":8000}' $IMAGE_NAME:latest > imageDefinitions.json
+      - printf '[{"name":"web","imageUri":"%s"}]' "$IMAGE_NAME:latest" > imageDefinitions.json
       - cat imageDefinitions.json
 
 artifacts:
   files:
     - '**/*'
-  base-directory: '.'
   discard-paths: no
-  exclude-patterns:
-    - 'node_modules/**/*'
-    - '.git/**/*'
-    - '.gitignore'
-    - 'README.md'
-    - 'package-lock.json'
