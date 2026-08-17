@@ -14,3 +14,21 @@
       - location: scripts/start_container.sh
         timeout: 300
         runas: root
+
+#ps_Dev Branch
+  version: 0.0.0.0.0.0.1
+  os: ubuntu
+  files:
+    - source: /
+      destination: /home/ubuntu/online-shop-app-yz.com
+      overwrite: true
+  file_exists_behavior: OVERWRITE
+  hooks:
+    ApplicationStop:
+      - location: scripts/stop_container.sh
+        timeout: 300
+        runas: root
+    ApplicationStart:
+      - location: scripts/start_container.sh
+        timeout: 300
+        runas: root
