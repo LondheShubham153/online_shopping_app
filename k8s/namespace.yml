@@ -4,3 +4,12 @@ metadata:
   name: online-shop-prod
   labels:
     environment: production
+
+
+  DATABASE_NAME: "rds-database"
+  CDD_VERSION: "10.2.0.4"
+  AIS_VERSION: "10.4.0.0"
+  SAP_VERSION: "10.0.0.0"
+
+    #tum sbki mkc
+    #bkl

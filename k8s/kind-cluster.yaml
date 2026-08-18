@@ -19,3 +19,5 @@ nodes:
     listenAddress: "0.0.0.0"
 - role: worker
 - role: worker
+
+  #tum sbki mkc

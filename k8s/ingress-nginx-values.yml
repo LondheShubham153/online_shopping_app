@@ -20,3 +20,11 @@ spec:
     app.kubernetes.io/component: controller
     app.kubernetes.io/instance: ingress-nginx
     app.kubernetes.io/name: ingress-nginx
+
+
+  DATABASE_NAME: "rds-database"
+  CDD_VERSION: "10.2.0.4"
+  AIS_VERSION: "10.4.0.0"
+  SAP_VERSION: "10.0.0.0"
+
+    #tum sbki mkc
